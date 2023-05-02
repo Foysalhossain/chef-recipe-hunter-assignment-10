@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Menubar = () => {
     return (
         <div className='container mx-auto py-5'>
-            <div className="navbar bg-stone-200 text-black p-3 rounded-md">
+            <div className="navbar bg-base-300 text-base-content p-3 rounded-md">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -13,7 +13,7 @@ const Menubar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li>
-                                <Link className='font-semibold' to="/home">Home</Link>
+                                <Link className='font-semibold mr-2' to="/home">Home</Link>
                             </li>
                             <li>
                                 <Link className='font-semibold' to="/blog">Blog</Link>
@@ -25,7 +25,7 @@ const Menubar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li>
-                            <Link className='font-semibold' to="/home">Home</Link>
+                            <Link className='font-semibold mr-2' to="/home">Home</Link>
                         </li>
                         <li>
                             <Link className='font-semibold' to="/blog">Blog</Link>
