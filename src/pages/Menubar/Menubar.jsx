@@ -1,8 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProviders';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Menubar = () => {
+    const { user } = useContext(AuthContext);
+    console.log(user?.email);
+
     return (
         <div className='container mx-auto py-5'>
             <div className="navbar bg-base-300 text-base-content p-3 rounded-md">
@@ -32,8 +37,12 @@ const Menubar = () => {
                         </li>
                     </ul>
                 </div>
+                <div>
+
+                </div>
                 <div className="navbar-end">
-                    <Link className='btn' to="/logout">Logout</Link>
+                    <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+                    <Link className='btn ml-3' to="/login">Login</Link>
                 </div>
             </div>
         </div>
