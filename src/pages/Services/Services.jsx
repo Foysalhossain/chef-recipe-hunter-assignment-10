@@ -5,8 +5,7 @@ const Services = () => {
 
     return (
         <div className='chefsDetail'>
-
-
+            <h2>Recipies</h2>
         </div>
     );
 };

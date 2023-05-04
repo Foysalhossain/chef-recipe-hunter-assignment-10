@@ -7,6 +7,7 @@ import LoginLayout from "../pages/LoginLayout/LoginLayout";
 import Blog from "../pages/Blog/Blog";
 import Home from "../pages/Home/Home";
 import Services from "../pages/Services/Services";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -41,7 +42,10 @@ const router = createBrowserRouter([
             },
             {
                 path: ':id',
-                element: <ServiceDetails></ServiceDetails>
+                element:
+                    <PrivateRoute>
+                        <ServiceDetails></ServiceDetails>
+                    </PrivateRoute>
             }
         ]
     }

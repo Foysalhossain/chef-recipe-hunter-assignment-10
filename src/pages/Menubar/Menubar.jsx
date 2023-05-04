@@ -5,6 +5,7 @@ import { AuthContext } from '../../providers/AuthProviders';
 
 const Menubar = () => {
     const { user, logOut } = useContext(AuthContext);
+    console.log(user);
 
     const handleLogOut = () => {
         logOut()
@@ -22,10 +23,20 @@ const Menubar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li>
-                                <Link className='font-semibold mr-2' to="/home">Home</Link>
+                                <NavLink
+                                    to='/home'
+                                    className={({ isActive }) => isActive ? "text-blue-600 " : ""}
+                                >
+                                    Home
+                                </NavLink>
                             </li>
                             <li>
-                                <Link className='font-semibold' to="/blog">Blog</Link>
+                                <NavLink
+                                    to='/blog'
+                                    className={({ isActive }) => isActive ? "text-blue-600 " : ""}
+                                >
+                                    Blog
+                                </NavLink>
                             </li>
                         </ul>
                     </div>
@@ -33,7 +44,7 @@ const Menubar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li>
+                        <li className='font-bold'>
                             <NavLink
                                 to='/home'
                                 className={({ isActive }) => isActive ? "text-blue-600 " : ""}
@@ -41,7 +52,7 @@ const Menubar = () => {
                                 Home
                             </NavLink>
                         </li>
-                        <li>
+                        <li className='font-bold'>
                             <NavLink
                                 to='/blog'
                                 className={({ isActive }) => isActive ? "text-blue-600 " : ""}
@@ -55,9 +66,10 @@ const Menubar = () => {
                     {
                         user ?
                             <>
-                                <span className=' w-12 h-12 mx-10'>
-                                    <img className='rounded-full' src={user.photoURL} alt="" />
-                                </span>
+                                <div className='w-2/5 rounded-full h-2/4'>
+                                    <img className='rounded-full w-1/4 h-2/4 mx-auto' src={user.photoURL} alt="" />
+                                    {user.name}
+                                </div>
                                 <button onClick={handleLogOut} className="btn">Sign out</button>
                             </> : <Link className='btn ml-3' to='/login'>Login</Link>
                     }

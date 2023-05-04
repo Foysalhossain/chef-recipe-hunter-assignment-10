@@ -2,6 +2,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
 
@@ -26,14 +27,26 @@ const Register = () => {
             registerUser(email, password)
                 .then((result) => {
                     const loggedUser = result.user
+                    updatedUser(result.user, name, photo)
                     console.log(loggedUser);
                 })
                 .catch((err) => {
                     console.log(err.message);
                 })
         }
-
+        event.target.reset();
     }
+
+    const updatedUser = (user, userName, url) => {
+        updateProfile(user, {
+            displayName: userName, photoURL: url
+        }).then(() => {
+
+        }).catch((error) => {
+
+        });
+    }
+
     return (
         <div>
             <div className="hero min-h-screen">

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import image from '../../assets/banner/banner-img1.jpg'
 import { key } from 'localforage';
 import FoodCategoryList from '../../components/FoodCategoryList/FoodCategoryList';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     const [chefsServices, setChefsServices] = useState([])
@@ -51,7 +52,7 @@ const Home = () => {
                                     <h2 className='font-semibold'>Numbers Of Recipe: {chef.num_of_recipes}</h2>
                                     <h2 className='font-semibold'>Numbers Likes: {chef.likes}</h2>
                                     <div className="card-actions mt-3">
-                                        <button className="btn btn-primary capitalize">View Recipes</button>
+                                        <Link to={`/services/${chef.id}`}> <button className='px-3 py-3 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-md text-white font-semibold'>View Recipes</button></Link>
                                     </div>
                                 </div>
                             </div>
