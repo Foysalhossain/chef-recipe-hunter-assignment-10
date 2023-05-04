@@ -49,14 +49,6 @@ const Menubar = () => {
                                 Blog
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink
-                                to='/service'
-                                className={({ isActive }) => isActive ? "text-blue-600 " : ""}
-                            >
-                                Service
-                            </NavLink>
-                        </li>
                     </ul>
                 </div>
                 <div className="navbar-end">

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import image from '../../assets/banner/banner-img1.jpg'
 import { key } from 'localforage';
+import FoodCategoryList from '../../components/FoodCategoryList/FoodCategoryList';
 
 const Home = () => {
     const [chefsServices, setChefsServices] = useState([])
@@ -35,6 +36,10 @@ const Home = () => {
 
             {/* chefs details */}
             <div className='container mx-auto'>
+                <div className='text-center mb-4'>
+                    <h2 className='text-3xl font-bold'>Featured Chefs</h2>
+                    <p className='py-5 text-slate-500'>See Our Chefs Speciality</p>
+                </div>
                 <div className='mx-10 grid grid-cols-3 gap-10'>
                     {chefsServices.map(chef =>
                         < div key={chef.id}>
@@ -46,7 +51,7 @@ const Home = () => {
                                     <h2 className='font-semibold'>Numbers Of Recipe: {chef.num_of_recipes}</h2>
                                     <h2 className='font-semibold'>Numbers Likes: {chef.likes}</h2>
                                     <div className="card-actions mt-3">
-                                        <button className="btn btn-primary">View Recipes</button>
+                                        <button className="btn btn-primary capitalize">View Recipes</button>
                                     </div>
                                 </div>
                             </div>
@@ -54,6 +59,9 @@ const Home = () => {
                     )}
                 </div>
 
+                <div>
+                    <FoodCategoryList></FoodCategoryList>
+                </div>
             </div>
         </div >
     );
