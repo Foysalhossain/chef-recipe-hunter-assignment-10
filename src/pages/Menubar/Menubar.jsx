@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 import { FaUserCircle } from 'react-icons/fa';
+import image from '../../assets/person-img/userImg.jpg'
 
 const Menubar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -43,11 +44,12 @@ const Menubar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
                     {
                         user ?
                             <>
-                                <span>{user.email}</span>
+                                <span className=' w-12 h-12 mx-10'>
+                                    <img className='rounded-full' src={image} alt="" />
+                                </span>
                                 <button onClick={handleLogOut} className="btn  mb-3">Sign out</button>
                             </> : <Link className='btn ml-3' to='/login'>Login</Link>
                     }
