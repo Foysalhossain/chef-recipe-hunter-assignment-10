@@ -1,20 +1,46 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLoaderData, useParams } from 'react-router-dom';
+import Recipies from '../../components/Recipies/Recipies';
 
 const ServiceDetails = () => {
     const { id } = useParams();
+    const data = useLoaderData();
+    console.log(data);
+    const [details, setDetails] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allData${id}`)
+        fetch(`http://localhost:5000/allData/${id}`)
             .then((res) => res.json())
-            .then(data => console.log(data.item))
+            .then(data => setDetails(data))
     }, [])
 
+
+    console.log(details.recipies);
+
     return (
-        <div>
-            <h2 className='font-bold text-center'>Recipes: {id}</h2>
-        </div>
+        <div className='p-8'>
+
+            <div className='grid grid-cols-2 container mx-auto my-10'>
+                <div>
+                    <h2 className='font-bold my-2'>{details.name}</h2>
+                    <h2 className='my-2'>{details.bio}</h2>
+                    <h2 className='font-semibold my-2'>Experience: {details.years_of_experience}</h2>
+                    <h2 className='font-semibold my-2'>Recipie: {details.num_of_recipes}</h2>
+                    <h2 className='font-semibold my-2'>Likes: {details.likes}</h2>
+                </div>
+                <div>
+                    <img className='w-3/6 mx-auto' src={details.picture} alt="" />
+                </div>
+            </div>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                {
+                    details?.recipies?.map((item, index) => <Recipies key={index} item={item}></Recipies>)
+                }
+
+            </div>
+
+        </div >
     );
 };
 

@@ -13,8 +13,10 @@ const Home = () => {
             .then(res => res.json())
             .then(data => setChefsServices(data))
             .catch(error => console.error(error))
-        console.log(chefsServices);
+        // console.log(chefsServices);
     }, [])
+
+    // console.log(chefsServices);
 
     return (
         <div>
@@ -29,6 +31,7 @@ const Home = () => {
                         Get Started
                     </button>
                 </div>
+
                 {/* img */}
                 <div className='w-full lg:w-[68%] lg:ml-auto h-56 sm:h-96'>
                     <img className='w-full h-full' src={image} alt="" />
@@ -41,6 +44,7 @@ const Home = () => {
                     <h2 className='text-3xl font-bold'>Featured Chefs</h2>
                     <p className='py-5 text-slate-500'>See Our Chefs Speciality</p>
                 </div>
+
                 <div className='mx-10 grid grid-cols-3 gap-10'>
                     {chefsServices.map(chef =>
                         < div key={chef.id}>
@@ -52,7 +56,7 @@ const Home = () => {
                                     <h2 className='font-semibold'>Numbers Of Recipe: {chef.num_of_recipes}</h2>
                                     <h2 className='font-semibold'>Numbers Likes: {chef.likes}</h2>
                                     <div className="card-actions mt-3">
-                                        <Link to={`/services/${chef.id}`}> <button className='px-3 py-3 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-md text-white font-semibold'>View Recipes</button></Link>
+                                        <Link to={`/allData/${chef.id}`}> <button className='px-3 py-3 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-md text-white font-semibold'>View Recipes</button></Link>
                                     </div>
                                 </div>
                             </div>

@@ -67,7 +67,7 @@ const Menubar = () => {
                         user ?
                             <>
                                 <div className='w-2/5 rounded-full h-2/4'>
-                                    <img className='rounded-full w-1/4 h-2/4 mx-auto' src={user.photoURL} alt="" />
+                                    <img className='rounded-full w-12 h-12 mx-auto' src={user.photoURL} alt="" />
                                     {user.name}
                                 </div>
                                 <button onClick={handleLogOut} className="btn">Sign out</button>
