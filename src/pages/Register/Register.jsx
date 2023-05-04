@@ -19,7 +19,7 @@ const Register = () => {
         event.preventDefault();
 
         if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
-            setError('password not valid need 8 chart');
+            setError('password not valid need 8 chart and one letter and one number');
             return;
         }
         if ((name, photo, email, password)) {
@@ -37,7 +37,7 @@ const Register = () => {
     return (
         <div>
             <div className="hero min-h-screen">
-                <div className="hero-content flex-col lg:flex-row">
+                <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Register now!</h1>
                     </div>

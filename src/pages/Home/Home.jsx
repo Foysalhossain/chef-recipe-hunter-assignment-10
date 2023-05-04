@@ -1,8 +1,19 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import image from '../../assets/banner/banner-img1.jpg'
+import { key } from 'localforage';
 
 const Home = () => {
+    const [chefsServices, setChefsServices] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/allData')
+            .then(res => res.json())
+            .then(data => setChefsServices(data))
+            .catch(error => console.error(error))
+        console.log(chefsServices);
+    }, [])
+
     return (
         <div>
             <div className='py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:py-20 flex flex-col items-center justify-between lg:flex-row'>
@@ -21,10 +32,30 @@ const Home = () => {
                     <img className='w-full h-full' src={image} alt="" />
                 </div>
             </div>
-            <div>
+
+            {/* chefs details */}
+            <div className='container mx-auto'>
+                <div className='mx-10 grid grid-cols-3 gap-10'>
+                    {chefsServices.map(chef =>
+                        < div key={chef.id}>
+                            <div className="card  w-full h-full gap-10 bg-base-100 shadow-xl">
+                                <figure><img src={chef.picture} alt="chef" /></figure>
+                                <div className="card-body">
+                                    <h1 className="card-title text-2xl">{chef.name}</h1>
+                                    <h2 className='font-semibold'>Years Of Experience: {chef.years_of_experience}</h2>
+                                    <h2 className='font-semibold'>Numbers Of Recipe: {chef.num_of_recipes}</h2>
+                                    <h2 className='font-semibold'>Numbers Likes: {chef.likes}</h2>
+                                    <div className="card-actions mt-3">
+                                        <button className="btn btn-primary">View Recipes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
 
             </div>
-        </div>
+        </div >
     );
 };
 

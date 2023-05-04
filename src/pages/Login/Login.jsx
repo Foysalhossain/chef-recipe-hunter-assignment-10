@@ -56,7 +56,7 @@ const Login = () => {
     return (
         <div>
             <div className="hero min-h-screen">
-                <div className="hero-content flex-col lg:flex-row">
+                <div className="hero-content flex-col ">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                     </div>
@@ -86,9 +86,13 @@ const Login = () => {
                             <button className="btn btn-link no-underline hover:no-underline">New to Easy Meals? Please Register</button>
                         </Link>
                     </div>
-                    <button onClick={handleGoogle} className="btn btn-outline btn-success mb-3"> <FaGoogle className='mr-2' /> Login with Google</button>
-                    <button onClick={handleGithub} className="btn btn-outline btn-secondary mb-3">
-                        <FaGithub className='mr-2' /> Login with Github</button>
+                    <div className='mt-5'>
+                        <button onClick={handleGoogle} className="btn btn-outline btn-success mb-3"> <FaGoogle className='mr-2' /> Login with Google</button>
+                        <br />
+                        <button onClick={handleGithub} className="btn btn-outline btn-secondary mb-3">
+                            <FaGithub className='mr-2' /> Login with Github</button>
+                    </div>
+
                 </div>
             </div>
         </div>

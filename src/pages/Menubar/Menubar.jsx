@@ -2,8 +2,6 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
-import { FaUserCircle } from 'react-icons/fa';
-import image from '../../assets/person-img/userImg.jpg'
 
 const Menubar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -66,7 +64,7 @@ const Menubar = () => {
                         user ?
                             <>
                                 <span className=' w-12 h-12 mx-10'>
-                                    <img className='rounded-full' src={image} alt="" />
+                                    <img className='rounded-full' src={user.photoURL} alt="" />
                                 </span>
                                 <button onClick={handleLogOut} className="btn">Sign out</button>
                             </> : <Link className='btn ml-3' to='/login'>Login</Link>
