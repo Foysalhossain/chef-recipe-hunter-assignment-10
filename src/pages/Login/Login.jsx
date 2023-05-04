@@ -4,15 +4,29 @@ import { Link } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProviders';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
 
     const { signIn, handleGoogleSingIn } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
-    const hangleGoogle = event => {
-        event.preventDefault();
+    const handleGoogle = () => {
+        console.log('click');
+        handleGoogleSingIn(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
 
-        handleGoogleSingIn()
+    const handleGithub = () => {
+        console.log('click');
+        handleGoogleSingIn(githubProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -65,15 +79,16 @@ const Login = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary mb-3">Login</button>
-                                <button onSubmit={hangleGoogle} className="btn btn-outline btn-success mb-3"> <FaGoogle className='mr-2' /> Login with Google</button>
-                                <button className="btn btn-outline btn-secondary mb-3">
-                                    <FaGithub className='mr-2' /> Login with Github</button>
+
                             </div>
                         </form>
                         <Link to="/register">
                             <button className="btn btn-link no-underline hover:no-underline">New to Easy Meals? Please Register</button>
                         </Link>
                     </div>
+                    <button onClick={handleGoogle} className="btn btn-outline btn-success mb-3"> <FaGoogle className='mr-2' /> Login with Google</button>
+                    <button onClick={handleGithub} className="btn btn-outline btn-secondary mb-3">
+                        <FaGithub className='mr-2' /> Login with Github</button>
                 </div>
             </div>
         </div>

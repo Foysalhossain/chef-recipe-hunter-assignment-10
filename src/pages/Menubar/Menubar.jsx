@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 import { FaUserCircle } from 'react-icons/fa';
 import image from '../../assets/person-img/userImg.jpg'
@@ -31,15 +31,33 @@ const Menubar = () => {
                             </li>
                         </ul>
                     </div>
-                    <a className=" normal-case text-xl font-semibold">Easy Meals</a>
+                    <a className=" normal-case text-xl font-bold">Easy Meals</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li>
-                            <Link className='font-semibold mr-2' to="/home">Home</Link>
+                            <NavLink
+                                to='/home'
+                                className={({ isActive }) => isActive ? "text-blue-600 " : ""}
+                            >
+                                Home
+                            </NavLink>
                         </li>
                         <li>
-                            <Link className='font-semibold' to="/blog">Blog</Link>
+                            <NavLink
+                                to='/blog'
+                                className={({ isActive }) => isActive ? "text-blue-600 " : ""}
+                            >
+                                Blog
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to='/service'
+                                className={({ isActive }) => isActive ? "text-blue-600 " : ""}
+                            >
+                                Service
+                            </NavLink>
                         </li>
                     </ul>
                 </div>
@@ -50,7 +68,7 @@ const Menubar = () => {
                                 <span className=' w-12 h-12 mx-10'>
                                     <img className='rounded-full' src={image} alt="" />
                                 </span>
-                                <button onClick={handleLogOut} className="btn  mb-3">Sign out</button>
+                                <button onClick={handleLogOut} className="btn">Sign out</button>
                             </> : <Link className='btn ml-3' to='/login'>Login</Link>
                     }
                 </div>
