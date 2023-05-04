@@ -17,11 +17,6 @@ const Register = () => {
 
     const handleRegister = event => {
         event.preventDefault();
-        // const form = event.target;
-        // const name = form.name.value;
-        // const photo = form.photo.value;
-        // const email = form.email.value;
-        // const password = form.password.value;
 
         if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
             setError('password not valid need 8 chart');
@@ -77,7 +72,7 @@ const Register = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-primary">Register</button>
                             </div>
                             <p className='text-red-600'>{error}</p>
                         </form>

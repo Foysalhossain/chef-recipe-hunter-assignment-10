@@ -5,8 +5,13 @@ import { AuthContext } from '../../providers/AuthProviders';
 import { FaUserCircle } from 'react-icons/fa';
 
 const Menubar = () => {
-    const { user } = useContext(AuthContext);
-    console.log(user?.email);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
 
     return (
         <div className='container mx-auto py-5'>
@@ -37,13 +42,17 @@ const Menubar = () => {
                         </li>
                     </ul>
                 </div>
-                <div>
-
-                </div>
                 <div className="navbar-end">
                     <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
-                    <Link className='btn ml-3' to="/login">Login</Link>
+                    {
+                        user ?
+                            <>
+                                <span>{user.email}</span>
+                                <button onClick={handleLogOut} className="btn  mb-3">Sign out</button>
+                            </> : <Link className='btn ml-3' to='/login'>Login</Link>
+                    }
                 </div>
+
             </div>
         </div>
     );

@@ -7,7 +7,20 @@ import { AuthContext } from '../../providers/AuthProviders';
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext)
+    const { signIn, handleGoogleSingIn } = useContext(AuthContext);
+
+    const hangleGoogle = event => {
+        event.preventDefault();
+
+        handleGoogleSingIn()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
 
     const handleLogin = event => {
         event.preventDefault();
@@ -52,7 +65,7 @@ const Login = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary mb-3">Login</button>
-                                <button className="btn btn-outline btn-success mb-3"> <FaGoogle className='mr-2' /> Login with Google</button>
+                                <button onSubmit={hangleGoogle} className="btn btn-outline btn-success mb-3"> <FaGoogle className='mr-2' /> Login with Google</button>
                                 <button className="btn btn-outline btn-secondary mb-3">
                                     <FaGithub className='mr-2' /> Login with Github</button>
                             </div>
