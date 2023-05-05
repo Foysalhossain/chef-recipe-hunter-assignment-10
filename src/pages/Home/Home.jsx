@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import image from '../../assets/banner/banner-img1.jpg'
 import { key } from 'localforage';
 import FoodCategoryList from '../../components/FoodCategoryList/FoodCategoryList';
-import { Link } from 'react-router-dom';
+import { Link, useNavigation } from 'react-router-dom';
 import SpecialsFood from '../../components/SpecialsFood/SpecialsFood';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
 const Home = () => {
     const [chefsServices, setChefsServices] = useState([])
@@ -17,7 +18,10 @@ const Home = () => {
         // console.log(chefsServices);
     }, [])
 
-    // console.log(chefsServices);
+    const navigation = useNavigation();
+    if (navigation.state === 'loading') {
+        return <LoadingSpinner></LoadingSpinner>
+    }
 
     return (
         <div>

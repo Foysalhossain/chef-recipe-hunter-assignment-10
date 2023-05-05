@@ -9,6 +9,7 @@ import Home from "../pages/Home/Home";
 // import Services from "../pages/Services/Services";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 
 const router = createBrowserRouter([
     {
@@ -31,8 +32,7 @@ const router = createBrowserRouter([
             {
                 path: 'blog',
                 element: <Blog></Blog>
-            }
-            ,
+            },
             {
                 path: 'allData/:id',
                 element:
@@ -40,7 +40,11 @@ const router = createBrowserRouter([
                         <ServiceDetails></ServiceDetails>
                     </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/allData/${params.id}`)
-            }
+            },
+            {
+                path: 'loader',
+                element: <LoadingSpinner></LoadingSpinner>
+            },
         ]
     },
     // {

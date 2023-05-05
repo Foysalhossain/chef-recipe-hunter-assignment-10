@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData, useNavigation, useParams } from 'react-router-dom';
 import Recipies from '../../components/Recipies/Recipies';
 
 const ServiceDetails = () => {
@@ -16,7 +16,10 @@ const ServiceDetails = () => {
     }, [])
 
 
-    console.log(details.recipies);
+    const navigation = useNavigation();
+    if (navigation.state === 'loading') {
+        return <LoadingSpinner></LoadingSpinner>
+    }
 
     return (
         <div className='p-8'>
