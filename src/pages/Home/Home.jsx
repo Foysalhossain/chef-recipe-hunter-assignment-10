@@ -4,6 +4,7 @@ import image from '../../assets/banner/banner-img1.jpg'
 import { key } from 'localforage';
 import FoodCategoryList from '../../components/FoodCategoryList/FoodCategoryList';
 import { Link } from 'react-router-dom';
+import SpecialsFood from '../../components/SpecialsFood/SpecialsFood';
 
 const Home = () => {
     const [chefsServices, setChefsServices] = useState([])
@@ -66,6 +67,7 @@ const Home = () => {
 
                 <div>
                     <FoodCategoryList></FoodCategoryList>
+                    <SpecialsFood></SpecialsFood>
                 </div>
             </div>
         </div >
