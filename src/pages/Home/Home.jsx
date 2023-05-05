@@ -25,9 +25,9 @@ const Home = () => {
 
     return (
         <div>
-            <div className='py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:py-20 flex flex-col items-center justify-between lg:flex-row'>
+            <div className=' px-20 lg:px-0 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:py-20 flex flex-col items-center justify-between lg:flex-row'>
                 {/* text-content */}
-                <div className='text-left'>
+                <div className='text-left sm:px-10 lg:px-0'>
                     <h2 className='lineHeight sm:text-4xl  md:text-5xl lg:text-5xl  font-bold'>Delicious Food In our Restaurent</h2>
                     <p className='py-4 sm:mr-0 md:mr-60 lg:mr-60 text-slate-500'>
                         From classic Chinese-American takeout to regional staples, learn to make these easy dishes at home.
@@ -50,7 +50,7 @@ const Home = () => {
                     <p className='py-5 text-slate-500'>See Our Chefs Speciality</p>
                 </div>
 
-                <div className='mx-10 grid grid-cols-3 gap-10'>
+                <div className='mx-10 grid md:grid-cols-2 lg:grid-cols-3 gap-10'>
                     {chefsServices.map(chef =>
                         < div key={chef.id}>
                             <div className="card  w-full h-full gap-10 bg-base-100 shadow-xl">

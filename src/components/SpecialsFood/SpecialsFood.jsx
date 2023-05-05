@@ -3,7 +3,7 @@ import image from '../../assets/food-category/5.jpg'
 
 const SpecialsFood = () => {
     return (
-        <div className='py-16 grid grid-cols-2 gap-10 mx-10'>
+        <div className='py-16 grid lg:grid-cols-2 gap-10 mx-10'>
             {/* img */}
             <div className='w-full h-full lg:ml-auto sm:h-96'>
                 <img className='w-full h-full ' src={image} alt="" />
