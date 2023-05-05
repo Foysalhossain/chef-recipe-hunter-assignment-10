@@ -5,7 +5,7 @@ import { AuthContext } from '../../providers/AuthProviders';
 
 const Menubar = () => {
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
 
     const handleLogOut = () => {
         logOut()
@@ -24,7 +24,7 @@ const Menubar = () => {
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li>
                                 <NavLink
-                                    to='/home'
+                                    to='/'
                                     className={({ isActive }) => isActive ? "text-blue-600 " : ""}
                                 >
                                     Home
@@ -46,7 +46,7 @@ const Menubar = () => {
                     <ul className="menu menu-horizontal px-1">
                         <li className='font-bold'>
                             <NavLink
-                                to='/home'
+                                to='/'
                                 className={({ isActive }) => isActive ? "text-blue-600 " : ""}
                             >
                                 Home
@@ -66,11 +66,11 @@ const Menubar = () => {
                     {
                         user ?
                             <>
-                                <div className='w-2/5 rounded-full h-2/4'>
+                                <div className='w-2/5 rounded-full h-2/4 flex'>
                                     <img className='rounded-full w-12 h-12 mx-auto' src={user.photoURL} alt="" />
                                     {user.name}
+                                    <button onClick={handleLogOut} className="btn">Sign out</button>
                                 </div>
-                                <button onClick={handleLogOut} className="btn">Sign out</button>
                             </> : <Link className='btn ml-3' to='/login'>Login</Link>
                     }
                 </div>

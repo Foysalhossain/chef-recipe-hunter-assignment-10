@@ -10,7 +10,7 @@ const ServiceDetails = () => {
     const [details, setDetails] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allData/${id}`)
+        fetch(`https://chef-recipe-hunter-server-foysalhossain.vercel.app/allData/${id}`)
             .then((res) => res.json())
             .then(data => setDetails(data))
     }, [])

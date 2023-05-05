@@ -12,11 +12,10 @@ const Home = () => {
     const [chefsServices, setChefsServices] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/allData')
+        fetch('https://chef-recipe-hunter-server-foysalhossain.vercel.app/allData')
             .then(res => res.json())
             .then(data => setChefsServices(data))
             .catch(error => console.error(error))
-        // console.log(chefsServices);
     }, [])
 
     const navigation = useNavigation();

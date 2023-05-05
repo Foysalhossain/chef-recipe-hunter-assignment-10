@@ -18,16 +18,16 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
+                path: '/',
+                element: <Home></Home>
+            },
+            {
                 path: 'login',
                 element: <Login></Login>
             },
             {
                 path: 'register',
                 element: <Register></Register>
-            },
-            {
-                path: 'home',
-                element: <Home></Home>
             },
             {
                 path: 'blog',
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
                     <PrivateRoute>
                         <ServiceDetails></ServiceDetails>
                     </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/allData/${params.id}`)
+                loader: ({ params }) => fetch(`https://chef-recipe-hunter-server-foysalhossain.vercel.app/allData/${params.id}`)
             },
             {
                 path: 'loader',
