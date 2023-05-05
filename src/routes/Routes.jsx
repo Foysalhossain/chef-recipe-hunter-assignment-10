@@ -47,23 +47,7 @@ const router = createBrowserRouter([
             },
         ]
     },
-    // {
-    //     path: 'services',
-    //     element: <ServicesLayout></ServicesLayout>,
-    //     children: [
-    //         {
-    //             path: '/services',
-    //             element: <Services></Services>
-    //         },
-    //         {
-    //             path: 'allData/:id',
-    //             element:
-    //                 <PrivateRoute>
-    //                     <ServiceDetails></ServiceDetails>
-    //                 </PrivateRoute>
-    //         }
-    //     ]
-    // }
+
 ]);
 
 export default router;

@@ -6,6 +6,7 @@ import FoodCategoryList from '../../components/FoodCategoryList/FoodCategoryList
 import { Link, useNavigation } from 'react-router-dom';
 import SpecialsFood from '../../components/SpecialsFood/SpecialsFood';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
+import LazyLoad from 'react-lazy-load';
 
 const Home = () => {
     const [chefsServices, setChefsServices] = useState([])
@@ -54,7 +55,11 @@ const Home = () => {
                     {chefsServices.map(chef =>
                         < div key={chef.id}>
                             <div className="card  w-full h-full gap-10 bg-base-100 shadow-xl">
-                                <figure><img src={chef.picture} alt="chef" /></figure>
+                                <figure>
+                                    <LazyLoad height={300}>
+                                        <img src={chef.picture} alt="chef" />
+                                    </LazyLoad>
+                                </figure>
                                 <div className="card-body">
                                     <h1 className="card-title text-2xl">{chef.name}</h1>
                                     <h2 className='font-semibold'>Years Of Experience: {chef.years_of_experience}</h2>
