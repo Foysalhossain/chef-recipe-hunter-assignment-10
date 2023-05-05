@@ -1,6 +1,6 @@
 <h1>WELCOME TO EASY MEALS</h1>
 <h1>Live Site</h1>
-<p>Link: </p>
+<p>Link: https://chef-recipe-hunter-as-10.web.app/</p>
 <h1>
 
 *It's a food website, there is a menubar on the home page first and a banner below it.
