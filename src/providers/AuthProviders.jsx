@@ -46,6 +46,7 @@ const AuthProvider = ({ children }) => {
         handleGoogleSingIn
     }
 
+
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

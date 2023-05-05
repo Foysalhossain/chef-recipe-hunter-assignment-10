@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react';
-import { Link, useNavigation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 import { updateProfile } from 'firebase/auth';
 
@@ -47,10 +47,6 @@ const Register = () => {
         });
     }
 
-    const navigation = useNavigation();
-    if (navigation.state === 'loading') {
-        return <LoadingSpinner></LoadingSpinner>
-    }
 
     return (
         <div>
